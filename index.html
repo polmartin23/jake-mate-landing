@@ -514,6 +514,111 @@
     .js .reveal.d1 { transition-delay: 0.15s; }
     .js .reveal.d2 { transition-delay: 0.3s; }
 
+    /* ---------- Selector de compra ---------- */
+    .buy {
+      inset: 0 0 0 auto;
+      margin: 0;
+      width: min(460px, 100vw);
+      max-width: none;
+      height: 100vh;
+      max-height: none;
+      padding: 0;
+      border: 0;
+      background: var(--obsidian);
+      color: var(--ivory);
+    }
+    .buy::backdrop { background: rgba(10, 9, 8, 0.62); backdrop-filter: blur(4px); }
+    .buy[open] { display: flex; flex-direction: column; animation: slide-in 0.6s var(--ease); }
+    @keyframes slide-in {
+      from { transform: translateX(40px); opacity: 0; }
+      to { transform: none; opacity: 1; }
+    }
+    .buy__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 40px 36px 28px;
+      border-bottom: 1px solid var(--line-dark);
+    }
+    .buy__head .eyebrow { color: var(--gold); }
+    .buy__title { margin-top: 14px; font: 500 52px/1 var(--serif); }
+    .buy__close {
+      padding: 0 4px;
+      border: 0;
+      background: none;
+      color: var(--ivory);
+      font: 300 36px/1 var(--sans);
+      cursor: pointer;
+    }
+    .buy__list {
+      flex: 1;
+      margin: 0;
+      padding: 8px 36px 40px;
+      list-style: none;
+      overflow-y: auto;
+    }
+    .buy__item {
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      align-items: center;
+      gap: 22px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line-dark);
+      text-decoration: none;
+    }
+    .buy__item img {
+      width: 96px;
+      height: auto;
+      filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 1px rgba(244, 240, 233, 0.35));
+    }
+    .buy__name {
+      display: block;
+      font: 500 36px/1 var(--serif);
+      transition: color 0.4s var(--ease);
+    }
+    .buy__trait {
+      display: block;
+      margin-top: 8px;
+      font: 500 10px/1.4 var(--sans);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(244, 240, 233, 0.55);
+    }
+    .buy__go {
+      font: 500 11px/1 var(--sans);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      white-space: nowrap;
+    }
+    .buy__item:hover .buy__name { color: var(--gold-soft); }
+
+    .buy-fab {
+      position: fixed;
+      right: var(--gutter);
+      bottom: 28px;
+      z-index: 40;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 54px;
+      padding: 0 28px;
+      border: 0;
+      background: var(--ivory);
+      color: var(--obsidian);
+      font: 500 11px/1 var(--sans);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(16px);
+      pointer-events: none;
+      transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+    }
+    .buy-fab.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+
     /* ---------- Responsive ---------- */
     @media (max-width: 960px) {
       .site-nav { display: none; }
@@ -542,6 +647,26 @@
       .tab[aria-pressed="true"] .tab__name { opacity: 1; }
     }
     @media (max-width: 640px) {
+      .buy {
+        inset: auto 0 0 0;
+        width: 100vw;
+        height: auto;
+        max-height: 86vh;
+        max-width: none;
+        animation: none;
+      }
+      .buy[open] { animation: sheet-up 0.5s var(--ease); }
+      @keyframes sheet-up {
+        from { transform: translateY(40px); opacity: 0; }
+        to { transform: none; opacity: 1; }
+      }
+      .buy__head { padding: 28px 22px 22px; }
+      .buy__title { font-size: 40px; }
+      .buy__list { padding: 4px 22px 32px; }
+      .buy__item { grid-template-columns: 76px 1fr auto; gap: 16px; }
+      .buy__item img { width: 76px; }
+      .buy__name { font-size: 28px; }
+      .buy-fab { left: var(--gutter); right: var(--gutter); justify-content: center; }
       .hero__title { font-size: clamp(84px, 26vw, 150px); padding-top: 120px; }
       .hero__product { width: 88vw; }
       .hero__foot { flex-direction: column; align-items: flex-start; gap: 24px; }
@@ -573,7 +698,7 @@
       <a href="#ficha">Ficha</a>
     </nav>
     <a class="brand" href="#top" aria-label="KAMALA, inicio">Kamala</a>
-    <a class="btn btn--line btn--sm" href="#coleccion">Comprar</a>
+    <button class="btn btn--line btn--sm" type="button" data-open-buy>Comprar</button>
   </header>
 
   <main id="top">
@@ -587,7 +712,7 @@
           <p class="eyebrow">Colección KAMALA · JAKE MATE</p>
           <p class="hero__tag">La jugada que lo cambia todo.</p>
         </div>
-        <a class="btn btn--light" href="#coleccion">Elegir mi pieza</a>
+        <button class="btn btn--light" type="button" data-open-buy>Comprar la colección</button>
       </div>
       <span class="hero__scroll" aria-hidden="true"></span>
     </section>
@@ -723,7 +848,7 @@
       <p class="eyebrow reveal">Tu jugada</p>
       <h2 class="display reveal d1" id="cierre-titulo">Elige la <em>tuya.</em></h2>
       <p class="reveal d2">Every move defines you.</p>
-      <a class="btn btn--line reveal d2" href="#coleccion">Ver las seis piezas</a>
+      <button class="btn btn--line reveal d2" type="button" data-open-buy>Comprar la colección</button>
     </section>
 
   </main>
@@ -733,6 +858,52 @@
     <p>JAKE MATE · La jugada que lo cambia todo.</p>
     <p>© 2026 KAMALA</p>
   </footer>
+
+  <!-- Selector de compra: se abre desde cualquier punto de la página -->
+  <!-- TODO: enlaces "Comprar" a la página de cada pieza (URLs pendientes del equipo web) -->
+  <dialog class="buy" id="buy" aria-labelledby="buy-titulo">
+    <div class="buy__head">
+      <div>
+        <p class="eyebrow">Compra online</p>
+        <h2 class="buy__title" id="buy-titulo">Elige tu pieza</h2>
+      </div>
+      <button class="buy__close" type="button" data-close-buy aria-label="Cerrar">×</button>
+    </div>
+    <ul class="buy__list">
+      <li><a class="buy__item" href="#">
+        <img src="assets/cutouts/rey-1.webp" alt="">
+        <span><span class="buy__name">Rey</span><span class="buy__trait">King · Liderazgo</span></span>
+        <span class="buy__go">Comprar →</span>
+      </a></li>
+      <li><a class="buy__item" href="#">
+        <img src="assets/cutouts/dama-1.webp" alt="">
+        <span><span class="buy__name">Dama</span><span class="buy__trait">Queen · Versatilidad</span></span>
+        <span class="buy__go">Comprar →</span>
+      </a></li>
+      <li><a class="buy__item" href="#">
+        <img src="assets/cutouts/torre-1.webp" alt="">
+        <span><span class="buy__name">Torre</span><span class="buy__trait">Rook · Determinación</span></span>
+        <span class="buy__go">Comprar →</span>
+      </a></li>
+      <li><a class="buy__item" href="#">
+        <img src="assets/cutouts/alfil-1.webp" alt="">
+        <span><span class="buy__name">Alfil</span><span class="buy__trait">Bishop · Visión diferente</span></span>
+        <span class="buy__go">Comprar →</span>
+      </a></li>
+      <li><a class="buy__item" href="#">
+        <img src="assets/cutouts/caballo-1.webp" alt="">
+        <span><span class="buy__name">Caballo</span><span class="buy__trait">Knight · Originalidad</span></span>
+        <span class="buy__go">Comprar →</span>
+      </a></li>
+      <li><a class="buy__item" href="#">
+        <img src="assets/cutouts/peon-1.webp" alt="">
+        <span><span class="buy__name">Peón</span><span class="buy__trait">Pawn · Evolución</span></span>
+        <span class="buy__go">Comprar →</span>
+      </a></li>
+    </ul>
+  </dialog>
+
+  <button class="buy-fab" type="button" data-open-buy>Comprar <span aria-hidden="true">→</span></button>
 
   <script>
     (function () {
@@ -793,6 +964,18 @@
 
       stage.addEventListener('mouseenter', function () { if (altSrc) img.src = altSrc; });
       stage.addEventListener('mouseleave', function () { if (mainSrc) img.src = mainSrc; });
+
+      var buy = document.getElementById('buy');
+      var fab = document.querySelector('.buy-fab');
+      document.querySelectorAll('[data-open-buy]').forEach(function (btn) {
+        btn.addEventListener('click', function () { buy.showModal(); });
+      });
+      document.querySelector('[data-close-buy]').addEventListener('click', function () { buy.close(); });
+      buy.addEventListener('click', function (e) { if (e.target === buy) buy.close(); });
+
+      function onFab() { fab.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.8); }
+      onFab();
+      window.addEventListener('scroll', onFab, { passive: true });
     })();
   </script>
 
