@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JAKE MATE by KAMALA · La jugada que lo cambia todo</title>
+  <meta name="description" content="JAKE MATE by KAMALA: seis piezas de ajedrez con personalidad propia y un clip de sol que convierte cada montura en el movimiento decisivo. Compra online.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --obsidian: #171615;
+      --ivory: #F4F0E9;
+      --ivory-deep: #E9E3D7;
+      --gold: #B99B6C;
+      --wine: #652C37;
+      --stone: #A49A8E;
+      --muted: #6E6A63;
+      --line: rgba(23, 22, 21, 0.12);
+      --line-light: rgba(244, 240, 233, 0.18);
+      --serif: "EB Garamond", Garamond, Georgia, serif;
+      --sans: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --gutter: clamp(16px, 4vw, 56px);
+      --section: clamp(80px, 11vw, 150px);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--ivory);
+      color: var(--obsidian);
+      font: 400 16px/1.6 var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+    p { margin: 0; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+    .eyebrow {
+      font: 500 11px/1.4 var(--sans);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+    .display {
+      margin: 0;
+      font: 500 clamp(44px, 6.4vw, 96px)/1 var(--serif);
+      letter-spacing: -0.01em;
+    }
+
+    /* ---------- Botones ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 52px;
+      padding: 0 28px;
+      border: 1px solid currentColor;
+      font: 500 12px/1 var(--sans);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .btn--light { background: var(--ivory); border-color: var(--ivory); color: var(--obsidian); }
+    .btn--light:hover { background: transparent; color: var(--ivory); }
+    .btn--ghost { border-color: var(--line-light); color: var(--ivory); }
+    .btn--ghost:hover { border-color: var(--ivory); }
+    .btn--dark { background: var(--obsidian); border-color: var(--obsidian); color: var(--ivory); }
+    .btn--dark:hover { background: transparent; color: var(--obsidian); }
+
+    /* ---------- Cabecera ---------- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      padding: 0 var(--gutter);
+      background: rgba(23, 22, 21, 0.94);
+      color: var(--ivory);
+      backdrop-filter: blur(10px);
+    }
+    .brand {
+      font: 500 13px/1 var(--sans);
+      letter-spacing: 0.42em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .site-nav { display: flex; align-items: center; gap: 36px; }
+    .site-nav a:not(.btn) {
+      font: 500 11px/1 var(--sans);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .site-nav a:not(.btn):hover { opacity: 1; }
+    .site-header .btn { min-height: 42px; padding: 0 20px; }
+
+    /* ---------- 01 · Hero ---------- */
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 24px;
+      min-height: calc(100vh - 72px);
+      padding: clamp(48px, 7vw, 96px) var(--gutter);
+      background: var(--obsidian);
+      color: var(--ivory);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 74% 46%, rgba(185, 155, 108, 0.28), transparent 46%),
+        repeating-conic-gradient(rgba(244, 240, 233, 0.035) 0% 25%, transparent 0% 50%) 0 0 / 120px 120px;
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 40%, transparent 85%);
+      mask-image: radial-gradient(ellipse at center, #000 40%, transparent 85%);
+      pointer-events: none;
+    }
+    .hero > * { position: relative; }
+    .hero h1 {
+      margin: 22px 0 0;
+      font: 500 clamp(84px, 14vw, 230px)/0.84 var(--serif);
+      letter-spacing: -0.02em;
+    }
+    .hero h1 span { display: block; }
+    .hero h1 span + span { padding-left: 0.9em; }
+    .hero__tag {
+      margin-top: 28px;
+      font: italic 400 clamp(24px, 2.8vw, 36px)/1.2 var(--serif);
+      color: var(--gold);
+    }
+    .hero__lead {
+      max-width: 430px;
+      margin-top: 22px;
+      opacity: 0.78;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 40px; }
+    .hero__figure {
+      margin: 0;
+      display: grid;
+      place-items: center;
+    }
+    .hero__figure img {
+      width: min(100%, 680px);
+      filter: drop-shadow(0 40px 50px rgba(0, 0, 0, 0.55));
+      animation: float 9s ease-in-out infinite;
+    }
+    .hero__figure figcaption {
+      margin-top: 18px;
+      font: 500 11px/1 var(--sans);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    /* Franja de piezas */
+    .marquee {
+      overflow: hidden;
+      background: var(--obsidian);
+      border-top: 1px solid var(--line-light);
+      color: var(--gold);
+    }
+    .marquee__track {
+      display: flex;
+      width: max-content;
+      animation: marquee 34s linear infinite;
+    }
+    .marquee__track span {
+      padding: 22px 28px;
+      font: 500 13px/1 var(--sans);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .marquee__track span::after { content: "◆"; margin-left: 56px; opacity: 0.5; font-size: 9px; vertical-align: middle; }
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    /* ---------- 02 · Clip ---------- */
+    .clip { padding: var(--section) var(--gutter); }
+    .clip__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
+    .clip__head p { max-width: 360px; color: var(--muted); }
+    .clip__body {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: clamp(32px, 6vw, 96px);
+      margin-top: clamp(48px, 7vw, 96px);
+    }
+    .clip__body img {
+      width: 100%;
+      filter: drop-shadow(0 30px 40px rgba(23, 22, 21, 0.18));
+    }
+    .steps { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
+    .steps li {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 18px;
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+    }
+    .steps li:last-child { border-bottom: 1px solid var(--line); }
+    .steps .num {
+      font: italic 400 34px/1 var(--serif);
+      color: var(--gold);
+    }
+    .steps h3 {
+      margin: 0;
+      font: 500 30px/1.1 var(--serif);
+    }
+    .steps p { margin-top: 8px; color: var(--muted); }
+    .clip__quote {
+      margin-top: clamp(48px, 6vw, 80px);
+      font: italic 400 clamp(26px, 3vw, 40px)/1.2 var(--serif);
+      text-align: center;
+    }
+
+    /* ---------- 03 · Seis piezas ---------- */
+    .pieces-section {
+      padding: var(--section) var(--gutter);
+      background: var(--ivory-deep);
+    }
+    .section-head {
+      display: grid;
+      gap: 18px;
+      max-width: 720px;
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+    .section-head .eyebrow { color: var(--muted); }
+    .pieces {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .piece {
+      display: flex;
+      flex-direction: column;
+      background: var(--ivory);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .piece:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 50px -30px rgba(23, 22, 21, 0.35);
+    }
+    .piece__tile {
+      position: relative;
+      aspect-ratio: 5 / 4;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 50% 42%, #FFFFFF 0%, var(--ivory) 70%);
+      overflow: hidden;
+    }
+    .piece__tile img {
+      grid-area: 1 / 1;
+      width: 84%;
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .piece__tile .img-alt { opacity: 0; transform: scale(1.04); }
+    .piece:hover .img-alt,
+    .piece:focus-within .img-alt { opacity: 1; transform: scale(1); }
+    .piece:hover .img-main { opacity: 0; }
+    .piece__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 6px;
+      padding: 26px 26px 28px;
+    }
+    .piece__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .piece__num {
+      font: italic 400 18px/1 var(--serif);
+      color: var(--gold);
+    }
+    .piece__en {
+      font: 500 10px/1.4 var(--sans);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .piece h3 {
+      margin: 6px 0 0;
+      font: 500 44px/1 var(--serif);
+    }
+    .piece__trait {
+      margin: 4px 0 0;
+      font: italic 400 19px/1.3 var(--serif);
+      color: var(--wine);
+    }
+    .piece__buy {
+      margin-top: auto;
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      font: 500 11px/1 var(--sans);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .piece__buy span { transition: transform 0.3s ease; }
+    .piece__buy:hover span { transform: translateX(6px); }
+
+    /* ---------- 04 · Ficha ---------- */
+    .ficha {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: clamp(32px, 6vw, 96px);
+      padding: var(--section) var(--gutter);
+      background: var(--obsidian);
+      color: var(--ivory);
+      overflow: hidden;
+    }
+    .ficha::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: min(720px, 90vw);
+      aspect-ratio: 1;
+      transform: translate(-30%, -50%);
+      background: radial-gradient(circle, rgba(185, 155, 108, 0.22), transparent 62%);
+      pointer-events: none;
+    }
+    .ficha > * { position: relative; }
+    .ficha__figure { margin: 0; }
+    .ficha__figure img {
+      width: 100%;
+      filter: drop-shadow(0 40px 50px rgba(0, 0, 0, 0.6));
+    }
+    .ficha .eyebrow { color: var(--gold); }
+    .ficha h2 { margin-top: 18px; }
+    .ficha__lead {
+      max-width: 420px;
+      margin-top: 24px;
+      opacity: 0.78;
+    }
+    .specs {
+      margin: 40px 0 0;
+      padding: 0;
+      border-top: 1px solid var(--line-light);
+    }
+    .specs div {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line-light);
+    }
+    .specs dt {
+      font: 500 11px/1.4 var(--sans);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+    .specs dd { margin: 0; text-align: right; font: 400 19px/1.3 var(--serif); }
+    .ficha__more { margin-top: 28px; font-size: 14px; opacity: 0.6; }
+    .ficha .actions { margin-top: 36px; }
+
+    /* ---------- 05 · Cierre ---------- */
+    .closing {
+      padding: var(--section) var(--gutter);
+      text-align: center;
+      display: grid;
+      justify-items: center;
+      gap: 28px;
+    }
+    .closing .eyebrow { color: var(--muted); }
+    .closing h2 { max-width: 14ch; }
+    .closing p { color: var(--muted); font: italic 400 22px/1.3 var(--serif); }
+
+    /* ---------- Pie ---------- */
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 40px var(--gutter);
+      background: var(--obsidian);
+      color: var(--ivory);
+      border-top: 1px solid var(--line-light);
+    }
+    .site-footer p { font-size: 13px; opacity: 0.6; }
+
+    /* Barra de compra en móvil */
+    .mobile-cta { display: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 960px) {
+      .hero, .clip__body, .ficha { grid-template-columns: 1fr; }
+      .hero__figure { order: -1; }
+      .hero__figure img { width: min(78%, 420px); }
+      .pieces { grid-template-columns: repeat(2, 1fr); }
+      .ficha__figure { max-width: 520px; }
+    }
+    @media (max-width: 560px) {
+      .site-nav a:not(.btn) { display: none; }
+      .site-nav { gap: 0; }
+      .hero { padding-top: 32px; }
+      .hero h1 { font-size: clamp(64px, 22vw, 104px); }
+      .actions .btn { flex: 1 1 100%; }
+      .pieces { gap: 14px; }
+      .piece__body { padding: 16px 14px 18px; }
+      .piece h3 { font-size: 30px; }
+      .piece__trait { font-size: 16px; }
+      .piece__buy { font-size: 10px; letter-spacing: 0.14em; }
+      .steps li { grid-template-columns: 44px 1fr; }
+      .specs div { flex-direction: column; gap: 6px; }
+      .specs dd { text-align: left; }
+      .mobile-cta {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 30;
+        padding: 12px var(--gutter);
+        background: rgba(23, 22, 21, 0.96);
+        backdrop-filter: blur(10px);
+      }
+      .mobile-cta .btn { flex: 1; min-height: 50px; }
+      body { padding-bottom: 84px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="KAMALA, inicio">K A M A L A</a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="#clip">El clip</a>
+      <a href="#piezas">Piezas</a>
+      <a href="#ficha">Ficha</a>
+      <a class="btn btn--ghost" href="#piezas">Comprar</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- 01 · Hero -->
+    <section class="hero" aria-labelledby="titulo">
+      <div class="hero__copy">
+        <p class="eyebrow">Colección KAMALA</p>
+        <h1 id="titulo"><span>JAKE</span><span>MATE</span></h1>
+        <p class="hero__tag">La jugada que lo cambia todo.</p>
+        <p class="hero__lead">Seis piezas de ajedrez con personalidad propia y un clip de sol que convierte cada montura en el movimiento decisivo.</p>
+        <div class="actions">
+          <a class="btn btn--light" href="#piezas">Elegir mi pieza</a>
+          <a class="btn btn--ghost" href="#clip">Cómo funciona el clip</a>
+        </div>
+      </div>
+      <figure class="hero__figure">
+        <img src="assets/cutouts/rey-1.webp" alt="Gafas KING #1 negras con clip de sol polarizado">
+        <figcaption>Rey · King #1</figcaption>
+      </figure>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Rey</span><span>Dama</span><span>Torre</span><span>Alfil</span><span>Caballo</span><span>Peón</span>
+        <span>Rey</span><span>Dama</span><span>Torre</span><span>Alfil</span><span>Caballo</span><span>Peón</span>
+      </div>
+    </div>
+
+    <!-- 02 · El clip -->
+    <section class="clip" id="clip" aria-labelledby="clip-titulo">
+      <div class="clip__head">
+        <div>
+          <p class="eyebrow">02 · El clip</p>
+          <h2 class="display" id="clip-titulo">El movimiento<br>decisivo.</h2>
+        </div>
+        <p>Una montura y un clip de sol polarizado. Por separado, dos piezas. Juntas, una jugada.</p>
+      </div>
+
+      <div class="clip__body">
+        <img src="assets/cutouts/rey-2.webp" alt="Montura KING #1 y clip de sol polarizado">
+        <ol class="steps">
+          <li>
+            <span class="num">I</span>
+            <div>
+              <h3>La montura</h3>
+              <p>Lo que eres.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num">II</span>
+            <div>
+              <h3>El clip</h3>
+              <p>Lo que eliges ser.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <p class="clip__quote">Dos formas de jugar la misma partida.</p>
+    </section>
+
+    <!-- 03 · Seis piezas -->
+    <section class="pieces-section" id="piezas" aria-labelledby="piezas-titulo">
+      <div class="section-head">
+        <p class="eyebrow">03 · Las seis piezas</p>
+        <h2 class="display" id="piezas-titulo">Cada pieza,<br>una forma de ser.</h2>
+      </div>
+
+      <!-- TODO: enlaces "Comprar" a la ficha de producto de cada pieza (URLs pendientes del equipo web) -->
+      <ul class="pieces">
+        <li class="piece">
+          <div class="piece__tile">
+            <img class="img-main" src="assets/cutouts/rey-1.webp" alt="Rey, gafas KING #1">
+            <img class="img-alt" src="assets/cutouts/rey-2.webp" alt="" aria-hidden="true">
+          </div>
+          <div class="piece__body">
+            <div class="piece__top"><span class="piece__num">I</span><span class="piece__en">King</span></div>
+            <h3>Rey</h3>
+            <p class="piece__trait">Liderazgo</p>
+            <a class="piece__buy" href="#">Comprar <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+
+        <li class="piece">
+          <div class="piece__tile">
+            <img class="img-main" src="assets/cutouts/dama-1.webp" alt="Dama, gafas QUEEN">
+            <img class="img-alt" src="assets/cutouts/dama-2.webp" alt="" aria-hidden="true">
+          </div>
+          <div class="piece__body">
+            <div class="piece__top"><span class="piece__num">II</span><span class="piece__en">Queen</span></div>
+            <h3>Dama</h3>
+            <p class="piece__trait">Versatilidad</p>
+            <a class="piece__buy" href="#">Comprar <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+
+        <li class="piece">
+          <div class="piece__tile">
+            <img class="img-main" src="assets/cutouts/torre-1.webp" alt="Torre, gafas ROOK">
+            <img class="img-alt" src="assets/cutouts/torre-2.webp" alt="" aria-hidden="true">
+          </div>
+          <div class="piece__body">
+            <div class="piece__top"><span class="piece__num">III</span><span class="piece__en">Rook</span></div>
+            <h3>Torre</h3>
+            <p class="piece__trait">Determinación</p>
+            <a class="piece__buy" href="#">Comprar <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+
+        <li class="piece">
+          <div class="piece__tile">
+            <img class="img-main" src="assets/cutouts/alfil-1.webp" alt="Alfil, gafas BISHOP">
+            <img class="img-alt" src="assets/cutouts/alfil-2.webp" alt="" aria-hidden="true">
+          </div>
+          <div class="piece__body">
+            <div class="piece__top"><span class="piece__num">IV</span><span class="piece__en">Bishop</span></div>
+            <h3>Alfil</h3>
+            <p class="piece__trait">Visión diferente</p>
+            <a class="piece__buy" href="#">Comprar <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+
+        <li class="piece">
+          <div class="piece__tile">
+            <img class="img-main" src="assets/cutouts/caballo-1.webp" alt="Caballo, gafas KNIGHT">
+            <img class="img-alt" src="assets/cutouts/caballo-2.webp" alt="" aria-hidden="true">
+          </div>
+          <div class="piece__body">
+            <div class="piece__top"><span class="piece__num">V</span><span class="piece__en">Knight</span></div>
+            <h3>Caballo</h3>
+            <p class="piece__trait">Originalidad</p>
+            <a class="piece__buy" href="#">Comprar <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+
+        <li class="piece">
+          <div class="piece__tile">
+            <img class="img-main" src="assets/cutouts/peon-1.webp" alt="Peón, gafas PAWN">
+            <img class="img-alt" src="assets/cutouts/peon-2.webp" alt="" aria-hidden="true">
+          </div>
+          <div class="piece__body">
+            <div class="piece__top"><span class="piece__num">VI</span><span class="piece__en">Pawn</span></div>
+            <h3>Peón</h3>
+            <p class="piece__trait">Evolución</p>
+            <a class="piece__buy" href="#">Comprar <span aria-hidden="true">→</span></a>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 04 · Ficha de producto -->
+    <section class="ficha" id="ficha" aria-labelledby="ficha-titulo">
+      <figure class="ficha__figure">
+        <img src="assets/cutouts/rey-1.webp" alt="Gafas KING #1 con clip de sol polarizado">
+      </figure>
+      <div>
+        <p class="eyebrow">04 · Ficha · Rey</p>
+        <h2 class="display" id="ficha-titulo">KING #1</h2>
+        <p class="ficha__lead">Montura de líneas rectas y clip de sol polarizado. La pieza que abre la colección.</p>
+        <dl class="specs">
+          <div>
+            <dt>Medida</dt>
+            <dd>54 · 18 · 150</dd>
+          </div>
+          <div>
+            <dt>Protección</dt>
+            <dd>UV 400 · Categoría 3</dd>
+          </div>
+          <div>
+            <dt>Lente</dt>
+            <dd>Polarizada, con clip de sol</dd>
+          </div>
+        </dl>
+        <div class="actions">
+          <a class="btn btn--light" href="#">Comprar Rey</a>
+        </div>
+        <p class="ficha__more">Las fichas del resto de piezas se publicarán próximamente.</p>
+      </div>
+    </section>
+
+    <!-- 05 · Cierre -->
+    <section class="closing" aria-labelledby="cierre-titulo">
+      <p class="eyebrow">Tu jugada</p>
+      <h2 class="display" id="cierre-titulo">Elige la tuya.</h2>
+      <p>Every move defines you.</p>
+      <a class="btn btn--dark" href="#piezas">Ver las seis piezas</a>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <a class="brand" href="#top">K A M A L A</a>
+    <p>JAKE MATE · La jugada que lo cambia todo.</p>
+    <p>© 2026 KAMALA</p>
+  </footer>
+
+  <div class="mobile-cta">
+    <a class="btn btn--light" href="#piezas">Elegir mi pieza</a>
+  </div>
+
+</body>
+</html>
